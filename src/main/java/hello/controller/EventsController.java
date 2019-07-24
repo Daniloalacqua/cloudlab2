@@ -62,14 +62,14 @@ public class EventsController {
 
 	@DeleteMapping("/events/{id}/delete")
 	public ResponseEntity<Object> deleteEvents(@PathVariable long id) {
-		Optional<Event> delEventOptional=eventsRepository.findById(id);
-		
-		if(!delEventOptional.isPresent()) {
+		Optional<Event> delEventOptional = eventsRepository.findById(id);
+
+		if (!delEventOptional.isPresent()) {
 			return ResponseEntity.notFound().build();
-			}
-		eventsRepository.deleteById(id);
-		
-		return ResponseEntity.noContent().build();	
 		}
+		eventsRepository.deleteById(id);
+
+		return ResponseEntity.noContent().build();
+	}
 
 }
